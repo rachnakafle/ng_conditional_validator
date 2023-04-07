@@ -1,0 +1,17 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <label>
+    File type:
+    <select formControlName="fileType">
+      <option value="">-- Select --</option>
+      <option value="pdf">PDF</option>
+      <option value="image">Image</option>
+    </select>
+  </label>
+
+  <label>
+    File:
+    <input type="file" formControlName="file" [disabled]="!isFileFieldEnabled" />
+  </label>
+
+  <button type="submit" [disabled]="form.invalid">Submit</button>
+</form>
