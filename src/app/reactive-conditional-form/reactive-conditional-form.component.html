@@ -1,13 +1,13 @@
 <div class="container">
-  <form>
+  <form #fillKycFormId="ngForm" (ngSubmit)="OnSubmit()" [formGroup]="form">
     <label for="">First Name</label>
-    <input formControlName="phone" id="phone" name="phone" /><br />
+    <input formControlName="firstname" id="phone" name="phone" /><br />
 
     <label for="">Last Name</label>
-    <input formControlName="phone" id="phone" name="phone" /><br />
+    <input formControlName="lastname" id="phone" name="phone" /><br />
 
     <label for="">Email</label>
-    <input formControlName="phone" id="phone" name="phone" /><br />
+    <input formControlName="email" id="phone" name="phone" /><br />
 
     <label for="">Phone Number</label>
     <input formControlName="phone" id="phone" name="phone" /><br />
