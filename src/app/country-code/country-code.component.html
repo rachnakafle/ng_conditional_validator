@@ -1,0 +1,25 @@
+<!-- <div class="container">
+  <div class="row">
+    <div class="col-md-9">
+      <label for="">Phone Num:</label>
+      <input
+        type="text"
+        ng2TelInput
+        [ng2TelInputOptions]="{ initialCountry: 'in' }"
+        (hasError)="hasError($event)"
+        (ng2TelOutput)="getNumber($event)"
+        (intlTelInputObject)="telInputObject($event)"
+        (countryChange)="onCountryChange($event)"
+      />
+    </div>
+  </div>
+</div> -->
+
+<form #myForm="ngForm">
+    <label for="phone">Phone Number:</label>
+    <input type="tel" id="phone" name="phone" ngModel required pattern="^\+\d{1,3}\s\d{3}\s\d{3}\s\d{4}$">
+    <div *ngIf="myForm.submitted && myForm.controls['phone'].invalid" class="error">
+      Phone number is required and must be in the format: +[country code] [area code] [phone number]
+    </div>
+    <button type="submit">Submit</button>
+  </form>
