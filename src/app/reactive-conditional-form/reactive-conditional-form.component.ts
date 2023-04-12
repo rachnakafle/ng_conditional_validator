@@ -12,12 +12,31 @@ export class ReactiveConditionalFormComponent implements OnInit {
     firstname: new FormControl('', [Validators.required]),
     lastname: new FormControl('', [Validators.required]),
     email: new FormControl('', Validators.required),
-    phone: new FormControl('', [Validators.required]),
-    // contactPreference: ['email', Validators.required]
+    phone: new FormControl(''),
     contactPreference: new FormControl('email', Validators.required),
   });
 
   constructor() {}
+
+  get firstname() {
+    return this.form.get('firstname');
+  }
+
+  get lastname() {
+    return this.form.get('lastname');
+  }
+
+  get email() {
+    return this.form.get('email');
+  }
+
+  get phone() {
+    return this.form.get('phone');
+  }
+
+  get contactPreference() {
+    return this.form.get('contactPreference');
+  }
 
   ngOnInit(): void {
     this.onContactPreferenceChange();
@@ -31,10 +50,12 @@ export class ReactiveConditionalFormComponent implements OnInit {
 
       if (value == 'phone' || value == 'text') {
         // phoneControl?.setValidators(validators);
+
         // set validators overwirtes exisisting validators so replacing it with addvalidators
         phoneControl?.addValidators(validators);
       } else {
         // clearValidators overwirtes existing validators so replacing it with removeValidators
+
         // phoneControl?.clearValidators();
         phoneControl?.removeValidators(validators);
       }
@@ -43,5 +64,10 @@ export class ReactiveConditionalFormComponent implements OnInit {
     });
   }
 
-  OnSubmit() {}
+  OnSubmit() {
+    console.log(this.form.value);
+    if (this.form.valid) {
+      console.log('Form Submitted Successfully!!!');
+    }
+  }
 }
