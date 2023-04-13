@@ -15,11 +15,7 @@
   </div>
 </div> -->
 
-<form #myForm="ngForm">
-    <label for="phone">Phone Number:</label>
-    <input type="tel" id="phone" name="phone" ngModel required pattern="^\+\d{1,3}\s\d{3}\s\d{3}\s\d{4}$">
-    <div *ngIf="myForm.submitted && myForm.controls['phone'].invalid" class="error">
-      Phone number is required and must be in the format: +[country code] [area code] [phone number]
-    </div>
-    <button type="submit">Submit</button>
-  </form>
+<input type="tel" #cCode (change)="onCountryChange($event)" id="phone">
+
+<p>{{cCode.value}}</p>
+

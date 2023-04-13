@@ -23,7 +23,7 @@ import {Ng2TelInputModule} from 'ng2-tel-input';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    Ng2TelInputModule
+    Ng2TelInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
